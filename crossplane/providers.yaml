@@ -1,0 +1,17 @@
+---
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: provider-aws-sqs
+  namespace: crossplane-system
+spec:
+  package: xpkg.upbound.io/upbound/provider-aws-sqs:v1.1.0
+
+---
+apiVersion: pkg.crossplane.io/v1
+kind: Provider
+metadata:
+  name: provider-aws-ecr
+  namespace: crossplane-system
+spec:
+  package: xpkg.upbound.io/upbound/provider-aws-ecr:v1.1.0

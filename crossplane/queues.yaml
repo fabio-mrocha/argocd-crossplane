@@ -1,0 +1,11 @@
+apiVersion: sqs.aws.upbound.io/v1beta1
+kind: Queue
+metadata:
+  name: demo-queue
+  namespace: crossplane-system
+spec:
+  forProvider:
+    name: demo-queue
+    region: us-east-1
+  providerConfigRef:
+    name: default

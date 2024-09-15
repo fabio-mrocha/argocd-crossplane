@@ -1,0 +1,20 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: infra
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: https://github.com/fabio-mrocha/argocd-crossplane.git
+    targetRevision: main
+    path: crossplane
+  destination:
+    name: in-cluster
+    namespace: infra
+  syncPolicy:
+    automated:
+      prune: true    
+    syncOptions:
+    - CreateNamespace=true
