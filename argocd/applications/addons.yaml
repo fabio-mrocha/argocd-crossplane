@@ -30,9 +30,9 @@ spec:
           valueFiles:
             - '$gitops/argocd/gitops/values-{{ chart.name }}.yaml'
       syncPolicy:
-        # automated:
-        #   prune: true
-        #   selfHeal: true
+        automated:
+          prune: true
+          selfHeal: true
         syncOptions:
           - PruneLast=true
           - ApplyOutOfSyncOnly=true
