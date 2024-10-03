@@ -1,0 +1,40 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: addons
+  namespace: argocd
+spec:
+  generators:
+    - git:
+        repoURL: https://github.com/fabio-mrocha/argocd-crossplane.git
+        revision: main
+        files:
+        - path: argocd/gitops/values-*.yaml
+  template:
+    metadata:
+      name: '{{ chart.name }}'
+    spec:
+      destination:
+        name: in-cluster
+        namespace: '{{ chart.namespace }}'
+      project: default
+      sources:
+      - repoURL: https://github.com/fabio-mrocha/argocd-crossplane.git
+        targetRevision: main
+        ref: gitops
+      - repoURL: '{{ chart.url }}'
+        chart: '{{ chart.name }}'
+        targetRevision: '{{ chart.version }}'
+        helm:
+          releaseName: '{{ chart.name }}'
+          valueFiles:
+            - '$gitops/argocd/gitops/values-{{ chart.name }}.yaml'
+      syncPolicy:
+        # automated:
+        #   prune: true
+        #   selfHeal: true
+        syncOptions:
+          - PruneLast=true
+          - ApplyOutOfSyncOnly=true
+          - CreateNamespace=true
+          - ServerSideApply=true

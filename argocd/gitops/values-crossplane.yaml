@@ -1,0 +1,5 @@
+chart:
+  name: crossplane
+  namespace: crossplane-system
+  url: https://charts.crossplane.io/master
+  version: 1.18.0-rc.0.61.ged4e659c
