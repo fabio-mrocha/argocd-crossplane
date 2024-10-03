@@ -9,9 +9,6 @@ spec:
   sources:
   - repoURL: https://github.com/fabio-mrocha/argocd-crossplane.git
     targetRevision: main
-    path: crossplane/providers
-  - repoURL: https://github.com/fabio-mrocha/argocd-crossplane.git
-    targetRevision: main
     path: crossplane/resources
   destination:
     name: in-cluster
