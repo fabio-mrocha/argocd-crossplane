@@ -2,6 +2,10 @@
 curl -sfL https://get.k3s.io | K3S_KUBECONFIG_MODE="644" INSTALL_K3S_EXEC="--cluster-cidr=10.42.0.0/16 --service-cidr=10.43.0.0/16" sh -
 
 
+## Cloning GitHub repository
+git clone https://github.com/fabio-mrocha/argocd-crossplane.git
+
+
 ## Creating argocd namespace
 kubectl create namespace argocd
 
@@ -22,6 +26,10 @@ kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.pas
 
 ## Accessing argocd via port-forward
 kubectl port-forward -n argocd --address='0.0.0.0' service/argocd-server 8080:443
+
+
+## Applying apps-of-apps application
+kubectl -n argocd create -f argocd-crossplane/argocd/apps-of-apps/applications.yaml
 
 
 ## In your browser, access ArgoCD 
