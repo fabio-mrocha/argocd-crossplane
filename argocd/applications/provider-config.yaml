@@ -2,16 +2,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: crossplane-providers-aws
+  name: crossplane-provider-aws-config
   namespace: argocd
   annotations:
-    argocd.argoproj.io/sync-wave: "1"
+    argocd.argoproj.io/sync-wave: "2"
 spec:
   project: default
   sources:
   - repoURL: https://github.com/fabio-mrocha/argocd-crossplane.git
     targetRevision: main
-    path: crossplane/providers
+    path: crossplane/provider-config
   destination:
     name: in-cluster
     namespace: crossplane-providers
