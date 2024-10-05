@@ -10,10 +10,6 @@ git clone https://github.com/fabio-mrocha/argocd-crossplane.git
 kubectl create namespace argocd
 
 
-## Installing argocd using manifest
-kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-
-
 ## Installing argocd using manifest Helm chart
 helm repo add argo https://argoproj.github.io/argo-helm
 
