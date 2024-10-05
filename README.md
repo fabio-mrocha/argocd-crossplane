@@ -42,3 +42,5 @@ https://github.com/jonashackt/crossplane-argocd
 https://cd.apps.argoproj.io/
 
 https://docs.crossplane.io/latest/getting-started/provider-aws/
+
+https://github.com/crossplane-contrib/provider-aws/tree/master/examples
