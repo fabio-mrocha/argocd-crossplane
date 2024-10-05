@@ -2,10 +2,9 @@ apiVersion: sqs.aws.upbound.io/v1beta1
 kind: Queue
 metadata:
   name: crossplane-queue
-  namespace: crossplane-system
 spec:
   forProvider:
-    name: crossplane-queue
     region: us-east-1
+    delaySeconds: 4
   providerConfigRef:
     name: default
