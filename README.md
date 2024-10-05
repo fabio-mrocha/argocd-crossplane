@@ -20,12 +20,12 @@ helm template argo-cd argo/argo-cd --version 7.6.2 --namespace argocd -f argocd-
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
 
 
-## Accessing argocd via port-forward
-kubectl port-forward -n argocd --address='0.0.0.0' service/argocd-server 8080:443
-
-
 ## Applying apps-of-apps application
 kubectl -n argocd create -f argocd-crossplane/argocd/apps-of-apps/applications.yaml
+
+
+## Accessing argocd via port-forward
+kubectl port-forward -n argocd --address='0.0.0.0' service/argocd-server 8080:443
 
 
 ## In your browser, access ArgoCD 
