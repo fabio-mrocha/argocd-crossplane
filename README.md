@@ -28,10 +28,15 @@ kubectl -n argocd create -f argocd-crossplane/argocd/apps-of-apps/applications.y
 kubectl create ns crossplane-system
 
 cat << 'EOF' > aws-credentials.txt
+
 [default]
+
 aws_access_key_id = <aws_access_key>
+
 aws_secret_access_key = <aws_secret_key>
+
 EOF
+
 
 kubectl create secret generic aws-secret -n crossplane-system --from-file=creds=aws-credentials.txt
 
