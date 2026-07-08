@@ -13,7 +13,7 @@ kubectl create namespace argocd
 ## Installing argocd using manifest Helm chart
 helm repo add argo https://argoproj.github.io/argo-helm
 
-helm template argo-cd argo/argo-cd --version 7.6.2 --namespace argocd -f argocd-crossplane/argocd/gitops/values-argo-cd.yaml | kubectl -n argocd create -f -
+helm template argo-cd argo/argo-cd --version 10.1.2 --namespace argocd -f argocd-crossplane/argocd/gitops/values-argo-cd.yaml | kubectl -n argocd create -f -
 
 
 ## Find out argocd password
