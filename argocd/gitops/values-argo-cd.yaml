@@ -1,12 +1,10 @@
 chart:
   name: argo-cd
   namespace: argocd
-  url: https://argoproj.github.io/argo-helm
-  version: 7.6.2
+  url: ghcr.io/argoproj/argo-helm/argo-cd
+  version: 10.1.2
 
 fullnameOverride: argocd
-image:
-  repository: quay.io/argoproj/argocd
 controller:
   replicas: 1
 repoServer:
@@ -18,7 +16,7 @@ configs:
     exec.enabled: true
   repositories:
     argo-helm-repo:
-      url: https://argoproj.github.io/argo-helm
+      url: ghcr.io/argoproj/argo-helm/argo-cd
       name: argo
       type: helm
     crossplane-helm-repo:
